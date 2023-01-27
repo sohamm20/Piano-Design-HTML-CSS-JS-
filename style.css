@@ -1,0 +1,33 @@
+body{
+  background-color: grey;
+}
+
+.piano {
+  display: flex;
+}
+
+.white-key {
+  width: 30px;
+  height: 120px;
+  background-color: white;
+  margin-right: 1px;
+  border-radius: 7px;
+}
+
+.black-key {
+  width: 20px;
+  height: 80px;
+  background-color: black;
+  position: relative;
+  z-index: 1;
+  margin-right: -10px;
+  margin-left: -10px;
+  border-radius: 5px;
+}
+
+.black-key:active{
+  background-color: rgb(56, 56, 56);
+}
+.white-key:active{
+  background-color: rgb(224, 224, 224);
+}

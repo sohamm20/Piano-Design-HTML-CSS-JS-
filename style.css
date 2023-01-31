@@ -4,25 +4,27 @@ body{
 
 .piano {
   display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .white-key {
-  width: 30px;
-  height: 120px;
+  width: 60px;
+  height: 240px;
   background-color: white;
   margin-right: 1px;
-  border-radius: 7px;
+  border-radius: 14px;
 }
 
 .black-key {
-  width: 20px;
-  height: 80px;
+  width: 40px;
+  height: 160px;
   background-color: black;
   position: relative;
   z-index: 1;
-  margin-right: -10px;
-  margin-left: -10px;
-  border-radius: 5px;
+  margin-right: -20px;
+  margin-left: -20px;
+  border-radius: 10px;
 }
 
 .black-key:active{
@@ -30,4 +32,19 @@ body{
 }
 .white-key:active{
   background-color: rgb(224, 224, 224);
+}
+
+#changeText{
+  margin: auto;
+  text-align: center;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.shruti{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  flex: 1 1 0;
+  width: 1;
 }

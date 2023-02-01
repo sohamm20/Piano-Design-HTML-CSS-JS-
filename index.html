@@ -9,6 +9,15 @@
 </head>
 
 <body>
+
+  <div class = "input">
+    <label for="dur">Duration : </label>
+    <input type="text" id = "dur" value = "0.5">
+    <label for="fun">Fundamental Frequency : </label>
+    <input type="text" id = "fun" value = "440">
+    <button type="Submit" onclick="update()" id = "sub">Submit</button>
+  </div>
+
   <div class="piano">
   <div class="white-key" onclick="playS()"></div>
   <div class="black-key" onclick="playr()"></div>
@@ -36,7 +45,6 @@
     <button class="shruti n" id = "n" onclick = "shiftn()">n1</button>
     <button class="shruti N" id = "N" onclick = "shiftN()">N1</button>
   </div>
-
   <script src="./script.js"></script>
 </body>
 

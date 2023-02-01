@@ -10,6 +10,67 @@ var D = false;
 var n = false;
 var N = false;
 
+var playTone = function(duration, frequency) {
+    var context = new(window.AudioContext || window.webkitAudioContext)();
+    var osc = context.createOscillator(); 
+    // Sine is the default type. Also available: square, sawtooth and triangle waveforms.
+    osc.type = 'sine'; 
+    var now = context.currentTime;
+    // Frequency in Hz.
+    // Set initial value. (you can use .value=freq if you want)
+    osc.frequency.setValueAtTime(frequency, now);
+    // set a "checkpoint" in 3 seconds - that will be the starting point of the ramp.
+    osc.frequency.setValueAtTime(frequency, now+3);
+    // set a ramp to freq+100Hz over the next 4 seconds.
+    osc.frequency.linearRampToValueAtTime(frequency+100,now+7)
+    osc.connect(context.destination); 
+    osc.start(now);
+    osc.stop(now + duration);
+}
+
+var t = 0.5;
+var f = 440;
+
+function update(){
+    t = document.getElementById("dur").value;
+    f = document.getElementById("fun").value;
+    updateRest(f);
+}
+var rest = [];
+
+function updateRest(f){
+    rest = [];
+
+    rest.push(f);
+    rest.push(f*256/243);
+    rest.push(f*16/15);
+    rest.push(f*10/9);
+    rest.push(f*9/8);
+    rest.push(f*32/27);
+    rest.push(f*6/5);
+    rest.push(f*5/4);
+    rest.push(f*81/64);
+    rest.push(f*4/3);
+    rest.push(f*27/20);
+    rest.push(f*45/32);
+    rest.push(f*729/512);
+    rest.push(f*3/2);
+    rest.push(f*128/81);
+    rest.push(f*8/5);
+    rest.push(f*5/3);
+    rest.push(f*27/16);
+    rest.push(f*16/9);
+    rest.push(f*9/5);
+    rest.push(f*15/8);
+    rest.push(f*243/128);
+
+    for (var i = 0; i < 21; i++){
+        rest[i] = Math.round(rest[i]*100, 2) / 100;
+    }
+}
+updateRest(f);
+
+
 function shiftr(){
     var shruti = document.getElementById("r");
     if (shruti.innerHTML == "r1"){
@@ -112,88 +173,90 @@ function shiftN(){
 }
 
 function playS() {
-    new Audio("./sounds/S.webm").play();
+    playTone(t, rest[0]);
 }
 function playr() {
     if (r){
-        new Audio("./other/_R.webm").play();
+        playTone(t, rest[2]);
     }
     else{
-        new Audio("./sounds/_R.webm").play();
+        playTone(t, rest[1]);
     }
 }
 function playR() {
     if (R){
-        new Audio("./other/R.webm").play();
+        playTone(t, rest[4]);
     }
     else{
-        new Audio("./sounds/R.webm").play();
+        playTone(t, rest[3]);
     }
 }
 function playg() {
     if (g){
-        new Audio("./other/_G.webm").play();
+        playTone(t, rest[6]);
     }
     else{
-        new Audio("./sounds/_G.webm").play();
+        playTone(t, rest[5]);
     }
 }
 function playG() {
     if (G){
-        new Audio("./other/G.webm").play();
+        playTone(t, rest[8]);
     }
     else{
-        new Audio("./sounds/G.webm").play();
+        playTone(t, rest[7]);
     }
 }
 function playM() {
     if (M){
-        new Audio("./other/M.webm").play();
+        playTone(t, rest[10]);
     }
     else{
-        new Audio("./sounds/M.webm").play();
+        playTone(t, rest[9]);
     }
 }
 function playm() {
     if (m){
-        new Audio("./other/_M.webm").play();
+        playTone(t, rest[12]);
     }
     else{
-        new Audio("./sounds/_M.webm").play();
+        playTone(t, rest[11]);
     }
 }
 function playP() {
-    new Audio("./sounds/P.webm").play();
+    playTone(t, rest[13]);
 }
 function playd() {
     if (d){
-        new Audio("./other/_D.webm").play();
+        playTone(t, rest[15]);
     }
     else{
-        new Audio("./sounds/_D.webm").play();
+        playTone(t, rest[14]);
     }
 }
 function playD() {
     if (D){
-        new Audio("./other/D.webm").play();
+        playTone(t, rest[17]);
     }
     else{
-        new Audio("./sounds/D.webm").play();
+        playTone(t, rest[16]);
     }
 }
 function playn() {
     if (n){
-        new Audio("./other/_N.webm").play();
+        playTone(t, rest[19]);
     }
     else{
-        new Audio("./sounds/_N.webm").play();
+        playTone(t, rest[18]);
     }
 }
 function playN() {
     if (N){
-        new Audio("./other/N.webm").play();
+        playTone(t, rest[21]);
     }
     else{
-        new Audio("./sounds/N.webm").play();
+        playTone(t, rest[20]);
     }
 }
+
+

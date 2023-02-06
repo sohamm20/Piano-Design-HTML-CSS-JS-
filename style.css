@@ -14,6 +14,7 @@ body{
   background-color: white;
   margin-right: 1px;
   border-radius: 14px;
+  transition: all 0.2s ease-in-out;
 }
 
 .black-key {
@@ -25,6 +26,16 @@ body{
   margin-right: -20px;
   margin-left: -20px;
   border-radius: 10px;
+}
+
+.white-key:hover {
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 6px rgba(0,0,0,0.5);
+}
+
+.white-key:active {
+  transform: translateY(5px);
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
 }
 
 .black-key:active{

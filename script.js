@@ -10,23 +10,27 @@ var D = false;
 var n = false;
 var N = false;
 
-var playTone = function(duration, frequency) {
-    var context = new(window.AudioContext || window.webkitAudioContext)();
-    var osc = context.createOscillator(); 
-    // Sine is the default type. Also available: square, sawtooth and triangle waveforms.
-    osc.type = 'sine'; 
-    var now = context.currentTime;
-    // Frequency in Hz.
-    // Set initial value. (you can use .value=freq if you want)
-    osc.frequency.setValueAtTime(frequency, now);
-    // set a "checkpoint" in 3 seconds - that will be the starting point of the ramp.
-    osc.frequency.setValueAtTime(frequency, now+3);
-    // set a ramp to freq+100Hz over the next 4 seconds.
-    osc.frequency.linearRampToValueAtTime(frequency+100,now+7)
-    osc.connect(context.destination); 
-    osc.start(now);
-    osc.stop(now + duration);
+function playTone(time, frequency) {
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  const duration = time * 1000; // Convert time to milliseconds
+
+  // Create an oscillator node
+  const oscillator = audioCtx.createOscillator();
+  oscillator.type = "sine"; // You can change the waveform if needed
+  oscillator.frequency.value = frequency;
+
+  // Connect the oscillator to the audio context destination (i.e., speakers)
+  oscillator.connect(audioCtx.destination);
+
+  // Start the oscillator
+  oscillator.start();
+
+  // Stop the oscillator after the specified duration
+  setTimeout(function () {
+    oscillator.stop();
+  }, duration);
 }
+
 
 var t = 0.5;
 var f = 440;

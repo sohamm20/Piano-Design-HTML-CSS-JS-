@@ -10,13 +10,15 @@ var D = false;
 var n = false;
 var N = false;
 
+timber = "sine";
+
 function playTone(time, frequency) {
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   const duration = time * 1000; // Convert time to milliseconds
 
   // Create an oscillator node
   const oscillator = audioCtx.createOscillator();
-  oscillator.type = "sine"; // You can change the waveform if needed
+  oscillator.type = timber; // You can change the waveform if needed
   oscillator.frequency.value = frequency;
 
   // Connect the oscillator to the audio context destination (i.e., speakers)
@@ -38,6 +40,7 @@ var f = 440;
 function update(){
     t = document.getElementById("dur").value;
     f = document.getElementById("fun").value;
+    timber = document.getElementById("wave").value;
     updateRest(f);
 }
 var rest = [];

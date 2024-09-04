@@ -1,4 +1,4 @@
-body{
+/* body{
   background-color: grey;
 }
 
@@ -87,4 +87,107 @@ label{
   font-family: Arial, Helvetica, sans-serif;
   font-size:smaller;
   color: white;
+} */
+
+body {
+  background-color: #d0d0d0; /* Darker grey for the background */
+  font-family: Arial, Helvetica, sans-serif; /* Consistent font */
+}
+
+.piano {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.white-key {
+  width: 60px;
+  height: 240px;
+  background-color: #ffffff; /* White color */
+  margin-right: 1px;
+  border-radius: 8px; /* Slightly smaller border radius for a modern look */
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for a raised effect */
+}
+
+.black-key {
+  width: 40px;
+  height: 160px;
+  background-color: #333333; /* Darker black */
+  position: relative;
+  z-index: 1;
+  margin-right: -20px;
+  margin-left: -20px;
+  border-radius: 6px; /* Slightly smaller border radius */
+}
+
+.white-key:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.white-key:active {
+  transform: translateY(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow on active */
+}
+
+.black-key:active {
+  background-color: #222222; /* Slightly lighter black on active */
+  transform: scale(0.9); /* Scale down effect on press */
+  transition: all 0.1s ease-in-out; /* Smooth transition for the scaling effect */
+}
+
+
+.white-key:active {
+  background-color: #e0e0e0; /* Slightly darker white on active */
+}
+
+#changeText {
+  margin: auto;
+  text-align: center;
+  margin: 10px;
+  font-weight: bold;
+  color: #333333; /* Darker text color for better readability */
+}
+
+.shruti {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  flex: 1;
+  width: 100%;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin: auto;
+}
+
+input {
+  text-align: center;
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid #ccc; /* Light grey border for inputs */
+  border-radius: 4px; /* Rounded corners for inputs */
+}
+
+#sub {
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8; /* Light background for the button */
+}
+
+#sub:hover {
+  background-color: #e0e0e0; /* Subtle hover effect */
+}
+
+label {
+  font-size: 0.875rem; /* Smaller text for labels */
+  color: #333333; /* Darker text color for better readability */
 }

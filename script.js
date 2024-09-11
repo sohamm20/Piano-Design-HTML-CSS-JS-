@@ -10,6 +10,8 @@ var D = false;
 var n = false;
 var N = false;
 
+
+
 timber = "sine";
 
 function playTone(time, frequency) {
@@ -266,4 +268,44 @@ function playN() {
     }
 }
 
+function handleTimber() {
+    // Get the text box element by its ID
+    var textBox = document.getElementById('wave');
 
+    timber = textBox.value;
+    
+    // Log the current value to the console or perform any action you want
+    // console.log('Text box value changed to:', textBox.value);
+}
+
+var currTimber = document.getElementById('wave');
+currTimber.addEventListener('input', handleTimber);
+
+
+function handleRoot() {
+    // Get the text box element by its ID
+    temp = document.getElementById("fun");
+    f = temp.value;
+    
+    // Log the current value to the console or perform any action you want
+    // console.log('Text box value changed to:', textBox.value);
+    updateRest(f);
+}
+
+var currRoot = document.getElementById('fun');
+currRoot.addEventListener('input', handleRoot);
+
+
+
+function handleTime() {
+    // Get the text box element by its ID
+    var textBox = document.getElementById('dur');
+
+    t = textBox.value;
+    
+    // Log the current value to the console or perform any action you want
+    // console.log('Text box value changed to:', textBox.value);
+}
+
+var currTime = document.getElementById('dur');
+currTime.addEventListener('input', handleTime);
